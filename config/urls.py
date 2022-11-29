@@ -1,5 +1,4 @@
 """config URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
@@ -18,9 +17,13 @@ from django.urls import path
 from app import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", views.home, name="home"),
-    path("login/", views.log_in, name="log_in"),
-    path("logout/", views.log_out, name="log_out"),
-    path("register/", views.register, name="register"),
+    path('admin/', admin.site.urls),
+    path("", views.home, name= "home"),
+    path('create_order/', views.createOrder, name= "create_order"),
+    path('update_order/<str:pk>/', views.updateOrder, name= "update_order"),
+    path('delete_order/<str:pk>/', views.deleteOrder, name= "delete_order"),
+    path('register/', views.registerPage, name= "register"),
+    path('login/', views.loginPage, name= "login"),
+    path('logout/', views.logoutUser, name= "logout"),
+    path('user/', views.userPage, name= "user-page"),
 ]

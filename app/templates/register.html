@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <link rel = "stylesheet" href= "{% static "style.css"%}">
+</head>
+<body>
+    <h3>Register</h3>
+<div class = "reg_box">
+    <form method = "POST" action= "">
+        {% csrf_token %}
+        <div class = "inp">
+            {{form.username.label}}
+            {{form.username}}
+        </div>
+
+        <div class "inp">
+            {{form.email.label}}
+            {{form.email}}
+        </div>
+        <div class "inp">
+            {{form.password1.label}}
+            {{form.password1}}
+        </div>
+        <div class "inp">
+            {{form.password2.label}}
+            {{form.password2}}
+        </div>
+
+        <input class = "submit" type= "submit" name = "Create User">
+    </form>
+    {{form.errors}}
+    <div class = "login_link">
+        Already have an account? <a href= "{%url 'login'%}"> Sign In</a>
+    </div>
+</div>
+</body>
+</html>

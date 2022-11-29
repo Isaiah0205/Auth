@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+    <div>
+        <h5>CUSTOMERS</h5>
+        <div class= 'card'>
+            <a class ='customer' href="{%url "register"%}"> Create Customer</a>
+            <table>
+                <tr>
+                    <th>Customer</th>
+                    <th>Phone</th>
+                    
+                </tr>
+                {% for customer in customers %}
+                    <tr>
+                        <td>{{customer.name}}</td>
+                        <td>{{customer.phone}}</td>
+                         
+                    </tr>
+                
+                {% endfor %}
+            </table>
+    <div>
+
+        <div>
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Username</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for customer in customers %}
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>{{customer.name}}</td>
+                        <td>{{customer.phone}}</td>
+                    </tr>
+                
+                {% endfor %}
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </table>
+            <h5>ORDERS</h5>
+           
+            <div class= 'card'>
+                <a class ='order' href = "{%url "create_order"%}"> Create Order</a>
+                <table>
+                    <tr>
+                        <th>Product</th>
+                        <th>Date Ordered</th>
+                        <th>Status</th>
+                        <th>Update</th>
+                        <th>Remove</th>
+                    </tr>
+                    
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{order.product}}</td>
+                            <td>{{order.date_created}}</td>
+                            <td>{{order.status}}</td>
+                            <td><a href= "{%url 'update_order' order.id %}">Update</a> </td>
+                            <td><a href= "{%url 'delete_order' order.id %}">Delete</a> </td>
+                             
+                        </tr>
+                    
+                    {% endfor %}
+                </table>
+        <div>
+        
+</body>
+</html>
+
+{% endblock content %}
